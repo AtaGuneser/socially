@@ -1,12 +1,9 @@
-import { ModeToggle } from "@/components/ModeToggle";
-import { Button } from "@/components/ui/button";
-import { SignInButton } from "@clerk/nextjs";
-import { SignedOut } from "@clerk/nextjs";
-import { SignedIn } from "@clerk/nextjs";
-import { UserButton } from "@clerk/nextjs";
-import Image from "next/image";
 
-export default function Home() {
+import prisma from "@/lib/prisma";
+
+
+export default async function Home() {
+  const posts = await prisma.post.findMany();
   return (
     <div>
       <h1>Hello World</h1>
