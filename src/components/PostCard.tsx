@@ -11,7 +11,7 @@ import { formatDistanceToNow } from "date-fns";
 import { Button } from "./ui/button";
 import { HeartIcon, LogInIcon, MessageCircleIcon, SendIcon } from "lucide-react";
 import { Textarea } from "./ui/textarea";
-import DeleteAlertDialog from "./DeleteAlertDialog";
+import { DeleteAlertDialog } from "./DeleteAlertDialog";
 
 type Posts = Awaited<ReturnType<typeof getPosts>>;
 type Post = Posts[number];
@@ -99,9 +99,9 @@ function PostCard({ post, dbUserId }: { post: Post; dbUserId: string | null }) {
                                     </div>
                                 </div>
                                 {/* Check if current user is the post author */}
-                                {/* {dbUserId === post.author.id && (
+                                {dbUserId === post.author.id && (
                                     <DeleteAlertDialog isDeleting={isDeleting} onDelete={handleDeletePost} />
-                                )} */}
+                                )}
                             </div>
                             <p className="mt-2 text-sm text-foreground break-words">{post.content}</p>
                         </div>
